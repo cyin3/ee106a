@@ -78,7 +78,9 @@ d) How does your complete system work? Describe each step.
 ### Results
 a) How well did your project work? What tasks did it perform? 
 b) Illustrate with pictures and at least one video.
-<video src="demovideos/red.mp4" width="320" height="200" controls preload></video>
+<video src="demovideos/red.mp4" width="480" height="300" controls preload></video>
+<video src="demovideos/red2.mp4" width="480" height="300" controls preload></video>
+<video src="demovideos/face_detection.mp4" width="480" height="300" controls preload></video>
 
 ### Conclusion
 
