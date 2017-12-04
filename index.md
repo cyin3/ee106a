@@ -16,6 +16,56 @@ We chose to implement basic signal processing algorithms to identify the red tar
 d) How do these design choices impact how well the project meets design criteria that would be encountered in a real engineering application, such as robustness, durability, and efficiency?
 Since we chose to identify a red target, a challenge in the design criteria is accurately identifying the target when there are multiple red objects in the turtlebot's view.  Possible distractors from the red target can arise from different room settings or lighting.  We strived to increase the robustness of our program by 
 
+### Computer Vision
+
+#### Red Folder Detection
+
+ ![Image](PresentationImages/final-proj3.png)
+    
+This is the original image. Original image subscribed from topic: ```camera/rgb/image_color```. We developed a Python parser for ~100 MB topic output file in order to reconstruct a scene (series of ~25 frames). We could then use Jupyter Notebook in Python with different libraries to test out different algorithms. 
+
+
+---
+
+![Image](PresentationImages/final-proj4.png)
+
+We converted the image to HSV image (hue, saturation, value) to be able to filter out all colors except a range of shade of red hues. The white regions are those pixels that have not been filtered out while the white images have been filtered out.
+
+--- 
+
+![Image](PresentationImages/final-proj5.png)
+
+
+We reinsert original redness into image simply for visualization. Not essential for detection but useful for initial threshold testing. 
+
+--- 
+
+![Image](PresentationImages/final-proj6.png)
+
+We applied Gaussian blur to the image. This should smooth out whiteness to create solid block. We then converted it to a black and white with a set light threshold
+
+---
+
+![Image](PresentationImages/screenshot328.png)
+
+We used OpenCV's contour detection to find all the contours in the image and then found the max contour of the blurred/ thresholded image. We reinserted the maximum contour into the original image to test its performance. This contour is effectively a bounding region for the red folder of interest.
+
+---
+
+![Image](PresentationImages/screenshot329.png)
+
+We used OpenCV's ApproxPolyDP which calls an implementation of Douglas Pecker's algorithm on a particular contour. This algorithm fits a polygon through the contour given a particular error threshold. I knew the red folder would always be a quadrilateral so I implemented a controlled search over the error parameter to find an error threshold to generate a quadrilateral. This algorithm generally gives us the 4 corners of the quadrilateral which we can use find the centroid
+
+---
+
+#### Face Recognition [work in progress]
+![Image](PresentationImages/screenshot330.png)
+
+As on our reach goals, we decided to extend recognition with existing controls to use face recognition to get the centroid. We used pre-trained OpenCV neural network classifier. This network is traditionally used for face recognition in webcams. This model needs training with our image in particular rather than standard facial features and would be much better if we used one image. This approach has great potential for high accuracy with simple bounding box and has been done many times in the past.
+
+
+---
+
 ### Implementation
 a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
 We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
@@ -36,6 +86,10 @@ b) Describe the major contributions of each team member.
 ### Additional materials
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+### Fun
+
+![Video](PresentationImages/funRidgeback.mp4)
 
 ```markdown
 Syntax highlighted code block
