@@ -89,7 +89,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 
 ### Fun
 
-![Video](PresentationImages/funRidgeback.mp4)
+![Video](PresentationImages/funRidgeback.gif)
 
 ```markdown
 Syntax highlighted code block
