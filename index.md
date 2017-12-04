@@ -76,7 +76,10 @@ c) Describe any software you wrote in detail. Illustrate with diagrams, flow cha
 d) How does your complete system work? Describe each step.
 
 ### Results
-a) How well did your project work? What tasks did it perform? (b) Illustrate with pictures and at least one video.
+a) How well did your project work? What tasks did it perform? 
+b) Illustrate with pictures and at least one video.
+<video src="demovideos/red.mp4" width="320" height="200" controls preload></video>
+
 ### Conclusion
 
 ### Team
