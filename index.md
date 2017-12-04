@@ -1,20 +1,20 @@
 ## Turtlebot Follower
 
 ### Introduction
-a) The end goal of this project is to program a turtlebot with the ability to identify and follow the likeliest red target by pathfinding and controlling the angle and distance from it. </br>
-b) This is an interesting project because we had to solve problems such as correctly identifying the red target from its surroundings and be able to follow in real time the target's change in movement. </br>
-c) Our project can be applied to real-world robotic applciations that involves tracking and following, such as a robot suitcase. </br>
+a) The end goal of this project is to program a turtlebot with the ability to identify and follow the likeliest red target by controlling the angle and distance from it.  
+b) This is an interesting project because for non-AR-tag vision, we had to solve problems such as correctly identifying the red target from its surroundings and be able to follow in real time the target's change in movement.  
+c) Our project can be applied to real-world robotic applciations that involves tracking and following, such as a robot suitcase.  
 
 ### Design
 a) Design criteria: 
-Our turtlebot should process the surroundings to identify the likeliest red quadrilateral as the target and use feedback control to minimize the error between the target's centroid and our centroid in the turtlebot's point of view.  </br>
+Our turtlebot should process the surroundings to identify the likeliest red quadrilateral as the target and use feedback control to minimize the error between the target's centroid and our centroid in the turtlebot's point of view.   
 b) Describe the design you chose.
 
-c) What design choices did you make when you formulated your design? What trade-offs did you have to make?
-We chose to implement basic signal processing algorithms to identify the red target in the turtlebot's environment because we could not getting ar_track_alvar to using the turtlebot camera, which required calibration.  The tradeoff that we had to make was to use computer vision and implement an algorithm from scratch to identify the moving red target.  </br>
+c) What design choices did you make when you formulated your design? What trade-offs did you have to make?   
+We chose to implement basic signal processing algorithms to identify the red target in the turtlebot's environment because we could not getting ar_track_alvar to using the turtlebot camera, which required calibration.  The tradeoff that we had to make was to use computer vision and implement an algorithm from scratch to identify the moving red target.
 
-d) How do these design choices impact how well the project meets design criteria that would be encountered in a real engineering application, such as robustness, durability, and efficiency?
-Since we chose to identify a red target, a challenge in the design criteria is accurately identifying the target when there are multiple red objects in the turtlebot's view.  Possible distractors from the red target can arise from different room settings or lighting.  We strived to increase the robustness of our program by 
+d) How do these design choices impact how well the project meets design criteria that would be encountered in a real engineering application, such as robustness, durability, and efficiency?  
+Since we chose to identify a red target, a challenge in the design criteria is accurately identifying the target when there are multiple red objects in the turtlebot's view.  Possible distractors from the red target can arise from different room settings or lighting.  We strived to increase the robustness of our computer vision algorithm.  
 
 ### Computer Vision
 
@@ -84,8 +84,10 @@ a) Include names and short bios of each member of your project group.
 b) Describe the major contributions of each team member.
 
 ### Additional materials
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+(a) code, URDFs, and launch files you wrote (b) CAD models for any hardware you designed
+(c) data sheets for components used in your system
+(d) any additional videos, images, or data from your finished solution
+(e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
 ### Fun
 
