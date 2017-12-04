@@ -79,14 +79,13 @@ d) How does your complete system work? Describe each step.
 a) How well did your project work? What tasks did it perform? 
 b) Illustrate with pictures and at least one video.
 <video src="demovideos/red.mp4" width="480" height="300" controls preload></video>
-<video src="demovideos/red2.mp4" width="480" height="300" controls preload></video>
-<video src="demovideos/face_detection.mp4" width="480" height="300" controls preload></video>
+<video src="demovideos/red2.mp4" width="320" height="200" controls preload></video>
+<video src="demovideos/face_detection.mp4" width="320" height="200" controls preload></video>
 
 ### Conclusion
 
 ### Team
-a) Include names and short bios of each member of your project group.
-b) Describe the major contributions of each team member.
+a) Include names and short bios of each member of your project group.b) Describe the major contributions of each team member.
 
 ### Additional materials
 (a) code, URDFs, and launch files you wrote (b) CAD models for any hardware you designed
