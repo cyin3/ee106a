@@ -77,10 +77,11 @@ d) How does your complete system work? Describe each step.
 
 ### Results
 a) How well did your project work? What tasks did it perform? 
+Bellow are the videos of our project in action.  The first two videos demonstrate the turtlebot tracking and following the red target on the moving ridgeback.  The last video shows the turtlebot performing facial recognition and maintaining its angle and distance from the targeted face.  
 b) Illustrate with pictures and at least one video.
 <video src="demovideos/red.mp4" width="480" height="300" controls preload></video>
-<video src="demovideos/red2.mp4" width="320" height="200" controls preload></video>
-<video src="demovideos/face_detection.mp4" width="320" height="200" controls preload></video>
+<video src="demovideos/red2.mp4" width="480" height="300" controls preload></video>
+<video src="demovideos/face_detection.mp4" width="480" height="300" controls preload></video>
 
 ### Conclusion
 
