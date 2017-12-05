@@ -3,7 +3,7 @@
 ### Introduction
 a) The end goal of this project is to program a turtlebot with the ability to identify and follow the likeliest red target by controlling the angle and distance from it.  
 b) This is an interesting project because for non-AR-tag vision, we had to solve problems such as correctly identifying the red target from its surroundings and be able to follow in real time the target's change in movement.  
-c) Our project can be applied to real-world robotic applciations that involves tracking and following, such as a robot suitcase.  
+c) Our project can be applied to real-world robotic applications that involves tracking and following, such as a robot suitcase.  
 
 ### Design
 a) Design criteria: 
