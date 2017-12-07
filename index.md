@@ -45,10 +45,11 @@ A big issue we faced was accounting for the image-processing delay, which caused
 ### Implementation
 a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
 We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
-Insert pic
-b) What parts did you use to build your solution?
+![Image](Images/IMG_20171206_111641_HDR.jpg)        ![Image](Images/IMG_20171206_111727_HDR.jpg)
+b) What parts did you use to build your solution?  
 
-c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.
+c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.  
+
 d) How does your complete system work? Describe each step.
 #### Computer Vision
 
@@ -99,7 +100,8 @@ As on our reach goals, we decided to extend recognition with existing controls t
 
 
 ---
-
+#### Depth Processing
+![Image](Images/depth_processing)
 
 ### Results
 a) How well did your project work? What tasks did it perform? 
@@ -111,11 +113,14 @@ b) Illustrate with pictures and at least one video.
 
 ### Conclusion
 (a) Discuss your results. How well did your finished solution meet your design criteria?  
+Our turtlebot is able to track and follow the moving red target, a red folder in this case.  In our finished solution, the turtlebot senses from the RGB camera and depth sensor to acquire the position of the red target and the estimated depth of each pixel for that snapshot of its surroundings.  Once the x, y, z coordinates of the centroid are calculated, the turtlebot actuates with proportional feedback control.  
 
 (b) Did you encounter any particular difficulties?  
 One of the challenges we faced was providing constant velocity for the for more than 0.6 seconds.  Although the turtlebot requires this to move, the velocity of the turtlebot is constantly being updated as it detects changes in the target's movement and position.  We also experimented with zumys as our moving target, but we had difficulties controlling the zumys.  For the red folder detection, we also had to minimize the instannces of confusion when the turtlebot sees multiple red objects in its view.  Turtlebot's constantly changing position in space can pose a challenge in reliably detecting one red target.  Especially since there exists a delay between the turtlebot's understanding of the target's change in movement and the execution of turtlebot's own movement, the turtlebot may lose sight of the target or have incorrect depth data associated with the centroid point that it identified, as the centroid may now have moved aside to a different point in space.  We overcame this problem by taking a snapshot of the depths associated with the image at the point when the turtlebot begins to find the target centroid by processing its surroundings.  
 
 (c) Does your solution have any flaws or hacks? What improvements would you make if you had additional time?  
+Our solution performs well under most circumstances, though a flaw may be the delay between the turtlebot's image capturing and excution of motion, which may cause the turtlebot to overshoot while turning and subsequent oscillation as the turtlebot tries to correct for the overshoot.  If we had more time, we would try to implement a more robust way of predicting the target's movement in the next time frame to account for the delay on the turtlebot's part and minimize the risk of overshooting.  Additionally if time allowed, we were also interested in programming the turtlebot to identify target containing words (convolutional neural net/ OCR) and follow while avoiding obstacles.
+
 
 ### Team
 a) Include names and short bios of each member of your project group.b) Describe the major contributions of each team member.
