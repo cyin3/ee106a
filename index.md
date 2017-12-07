@@ -1,24 +1,58 @@
 ## Turtlebot Follower
 
 ### Introduction
-a) The end goal of this project is to program a turtlebot with the ability to identify and follow the likeliest red target by controlling the angle and distance from it.  
-b) This is an interesting project because for non-AR-tag vision, we had to solve problems such as correctly identifying the red target from its surroundings and be able to follow in real time the target's change in movement.  
-c) Our project can be applied to real-world robotic applications that involves tracking and following, such as a robot suitcase.  
+Imagine if you could walk around the airport with your suitcase following you at every turn, as you stop, speed up, or even turn --completely hands free. Our project is to construct a program from scratch for a Turtlebot to identify and follow the likeliest red target by controlling the angle and distance from it.  Additionally in the works is the turtlebot tracking and following a particular face. Through implenting non-AR-tag vision, our project has to overcome challenges such as accurately identifying its target from constantly changing surrounding and mirroring in real time the target's movement change.  This dynamic robotic shadowing technology, however, can be incoporated into applications that provide convenience to people's movement.  
 
 ### Design
-a) Design criteria: 
-Our turtlebot should process the surroundings to identify the likeliest red quadrilateral as the target and use feedback control to minimize the error between the target's centroid and our centroid in the turtlebot's point of view.   
-b) Describe the design you chose.
+#### Design Criteria: 
+- Our turtlebot should be able to process its surroundings and choose the likeliest red target
+   - The code should identify the target's shape and determine if the red is the desired red quadrilateral target
+   - The code should get the target's position in x, y coordinates
+- The code should minimze the error between the actual target centroid and the turtlebot's view of the target centroid
+- The turtlebot should be able to estimate the depth between it and the target, maintaining a set distance away
+   - The turtlebot can move foward and back depending on the target's movement
+   - The turtlebot will turn according to the target's movement in real-time without losing sight of it's target
 
-c) What design choices did you make when you formulated your design? What trade-offs did you have to make?   
-We chose to implement basic signal processing algorithms to identify the red target in the turtlebot's environment because we could not getting ar_track_alvar to using the turtlebot camera, which required calibration.  The tradeoff that we had to make was to use computer vision and implement an algorithm from scratch to identify the moving red target.
+#### Design We Chose  
+Computer Vision/Image Processing:   
+   - Retrieve surroundings of the turtlebot in real-time using the kinect's RGB camera. (Topic: /camera/rgb/image_color)     
+   - Identify the red target by filtering the red pixels and use OpenCV's library to outline the target
+   - Find the x, y coordinates of the target's center   
 
-d) How do these design choices impact how well the project meets design criteria that would be encountered in a real engineering application, such as robustness, durability, and efficiency?  
-Since we chose to identify a red target, a challenge in the design criteria is accurately identifying the target when there are multiple red objects in the turtlebot's view.  Possible distractors from the red target can arise from different room settings or lighting.  We strived to increase the robustness of our computer vision algorithm.  
+Depth Processing:   
+   - Use the kinect's 3D sensor to collect of depth corresponding to each pixel seen from the camera (Topic: /camera/depth_registered/image)  
+   - Knowing x, y coordinates, find the depth or z coordinate associated with that point.
+   
+Control Turtlebot to Track:
+   - Use proportional feedback to control the turtlebot so it may move faster when there is greater difference between the target's centroid and the desired distance and orientation it should maintain from the target
 
-### Computer Vision
+#### Design Choices and Trade-offs 
+ar_track_alvar vs non-AR-tag vision:  
+   - Using the existing ar_track_alvar would have been much easier but it would be limited to following AR tags.  The tradeoff for implenting our own non-AR tag vision is that we had to account for cases of identifying the right target and image-processing delay.  
 
-#### Red Folder Detection
+#### Relation to Real-World Criteria  
+Robustness: 
+Since we chose to identify a red target, a challenge in the design criteria is accurately identifying the target when there are multiple red objects in the turtlebot's view.  Even with OpenCV's contour detection and ApproxPolyDP, a distractor red object in the surrounding may interfere with the centroid identification, risking an outlying point to distort the shape of the identified target.  
+
+Durability:
+To make the turtlebot follower more durable, we would need to ensure that the turtlebot behaves stably under different conditions of lighting, room settings, etc.  Different settings can make identifying the target less reliable as the target detection may fall out of the range of tolerability.  
+
+Efficiency:
+A big issue we faced was accounting for the image-processing delay, which caused overshoot and significant oscillation. We tried to fix this by adding derivative control and tuning speed and tolerance constraints.   
+
+
+
+### Implementation
+a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
+We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
+Insert pic
+b) What parts did you use to build your solution?
+
+c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.
+d) How does your complete system work? Describe each step.
+#### Computer Vision
+
+##### Red Folder Detection
 
  ![Image](PresentationImages/final-proj3.png)
     
@@ -58,7 +92,7 @@ We used OpenCV's ApproxPolyDP which calls an implementation of Douglas Pecker's 
 
 ---
 
-#### Face Recognition [work in progress]
+##### Face Recognition [work in progress]
 ![Image](PresentationImages/screenshot330.png)
 
 As on our reach goals, we decided to extend recognition with existing controls to use face recognition to get the centroid. We used pre-trained OpenCV neural network classifier. This network is traditionally used for face recognition in webcams. This model needs training with our image in particular rather than standard facial features and would be much better if we used one image. This approach has great potential for high accuracy with simple bounding box and has been done many times in the past.
@@ -66,14 +100,6 @@ As on our reach goals, we decided to extend recognition with existing controls t
 
 ---
 
-### Implementation
-a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
-We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
-Insert pic
-b) What parts did you use to build your solution?
-
-c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.
-d) How does your complete system work? Describe each step.
 
 ### Results
 a) How well did your project work? What tasks did it perform? 
@@ -84,12 +110,19 @@ b) Illustrate with pictures and at least one video.
 <video src="demovideos/face_detection.mp4" width="480" height="300" controls preload></video>
 
 ### Conclusion
+(a) Discuss your results. How well did your finished solution meet your design criteria?  
+
+(b) Did you encounter any particular difficulties?  
+One of the challenges we faced was providing constant velocity for the for more than 0.6 seconds.  Although the turtlebot requires this to move, the velocity of the turtlebot is constantly being updated as it detects changes in the target's movement and position.  We also experimented with zumys as our moving target, but we had difficulties controlling the zumys.  For the red folder detection, we also had to minimize the instannces of confusion when the turtlebot sees multiple red objects in its view.  Turtlebot's constantly changing position in space can pose a challenge in reliably detecting one red target.  Especially since there exists a delay between the turtlebot's understanding of the target's change in movement and the execution of turtlebot's own movement, the turtlebot may lose sight of the target or have incorrect depth data associated with the centroid point that it identified, as the centroid may now have moved aside to a different point in space.  We overcame this problem by taking a snapshot of the depths associated with the image at the point when the turtlebot begins to find the target centroid by processing its surroundings.  
+
+(c) Does your solution have any flaws or hacks? What improvements would you make if you had additional time?  
 
 ### Team
 a) Include names and short bios of each member of your project group.b) Describe the major contributions of each team member.
 
 ### Additional materials
-(a) code, URDFs, and launch files you wrote (b) CAD models for any hardware you designed
+(a) code, URDFs, and launch files you wrote  
+(b) CAD models for any hardware you designed
 (c) data sheets for components used in your system
 (d) any additional videos, images, or data from your finished solution
 (e) links to other public sites (e.g., GitHub), if that is where your files are stored
@@ -98,22 +131,3 @@ a) Include names and short bios of each member of your project group.b) Describe
 
 ![Video](PresentationImages/funRidgeback.gif)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
