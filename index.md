@@ -45,8 +45,8 @@ A big issue we faced was accounting for the image-processing delay, which caused
 ### Implementation
 a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
 We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
-<img src="Images/IMG_20171206_111641_HDR.jpg" width="48">
-<img src="Images/IMG_20171206_111727_HDR.jpg" width="48">  
+<img src="Images/IMG_20171206_111641_HDR.jpg" width="200">
+<img src="Images/IMG_20171206_111727_HDR.jpg" width="200">  
 
 b) What parts did you use to build your solution?  
 
@@ -103,7 +103,7 @@ As on our reach goals, we decided to extend recognition with existing controls t
 
 ---
 #### Depth Processing
-![Image](Images/depth_processing)
+![Image](Images/depth_processing.png)
 
 ### Results
 a) How well did your project work? What tasks did it perform? 
