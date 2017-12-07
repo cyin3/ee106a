@@ -100,10 +100,14 @@ We used OpenCV's ApproxPolyDP which calls an implementation of Douglas Pecker's 
 
 As on our reach goals, we decided to extend recognition with existing controls to use face recognition to get the centroid. We used pre-trained OpenCV neural network classifier. This network is traditionally used for face recognition in webcams. This model needs training with our image in particular rather than standard facial features and would be much better if we used one image. This approach has great potential for high accuracy with simple bounding box and has been done many times in the past.
 
-
 ---
 #### Depth Processing
-![Image](Images/depth_processing.png)
+![Image](Images/depth.png)
+
+#### Feedback Control 
+![Image](Images/feedback.png)  
+With desired x, y, z coordinates, we control the linear x and angular z velocities of the turtlebot. This allows us to set the angular direction and forward velocities so we can move the bot wherever we want.  We set a reference z position for the turtlebot to maintain from the target (0.75m).  The turtlebot tries to maintain the centroid of the image in the center of the image it sees, with some tolerance.  Both angular and linear velocities were controlled with proportional feedback controllers.  The individual proportional gains were tuned for best performance.
+
 
 ### Results
 a) How well did your project work? What tasks did it perform? 
