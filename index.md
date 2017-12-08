@@ -14,21 +14,24 @@ Imagine if you could walk around the airport with your suitcase following you at
    - The turtlebot will turn according to the target's movement in real-time without losing sight of it's target
 
 #### Design We Chose  
-Computer Vision/Image Processing:   
-   - Retrieve surroundings of the turtlebot in real-time using the kinect's RGB camera. (Topic: /camera/rgb/image_color)     
-   - Identify the red target by filtering the red pixels and use OpenCV's library to outline the target
-   - Find the x, y coordinates of the target's center   
+1. Computer Vision/Image Processing:  
+- Retrieve surroundings of the turtlebot in real-time using the kinect's RGB camera. (Topic: /camera/rgb/image_color)     
+- Identify the red target by filtering the red pixels and use OpenCV's library to outline the target
+- Find the x, y coordinates of the target's center   
 
-Depth Processing:   
-   - Use the kinect's 3D sensor to collect of depth corresponding to each pixel seen from the camera (Topic: /camera/depth_registered/image)  
-   - Knowing x, y coordinates, find the depth or z coordinate associated with that point.
+2. Depth Processing:  
+- Use the kinect's 3D sensor to collect of depth corresponding to each pixel seen from the camera (Topic: /camera/depth_registered/image)  
+- Knowing x, y coordinates, find the depth or z coordinate associated with that point.
    
-Control Turtlebot to Track:
-   - Use proportional feedback to control the turtlebot so it may move faster when there is greater difference between the target's centroid and the desired distance and orientation it should maintain from the target
+3. Control Turtlebot to Track:  
+- Use proportional feedback to control the turtlebot so it may move faster when there is greater difference between the target's centroid and the desired distance and orientation it should maintain from the target
 
 #### Design Choices and Trade-offs 
-ar_track_alvar vs non-AR-tag vision:  
+1. ar_track_alvar vs non-AR-tag vision:  
    - Using the existing ar_track_alvar would have been much easier but it would be limited to following AR tags.  The tradeoff for implenting our own non-AR tag vision is that we had to account for cases of identifying the right target and image-processing delay.  
+2. red folder or face detection vs another target:
+   - Another target such as a human may have been easier to implement as we could use the skeleton etimated by the kinect.  However, we chose to implement our own computer vision and controller code from scratch, which allowed us to work with many interesting problems when we chose to process and identify the target.  Additionally, the red folder or face target allowed us to have better control over moving the target for the turtlebot to track. 
+   
 
 #### Relation to Real-World Criteria  
 Robustness: 
@@ -143,7 +146,9 @@ Cassie -
 (a) code, URDFs, and launch files you wrote  <insert repo link here>
 (b) CAD models for any hardware you designed <no custom hardware> 
 (c) data sheets for components used in your system
-   ![Image](TURTLEBOT_DATA_SHEET_2015_web.pdf)
+   <!--- ![Image](TURTLEBOT_DATA_SHEET_2015_web.pdf) --->
+   [Turtlebot Data Sheet](https://github.com/cyin3/ee106a-final-project/blob/master/TURTLEBOT_DATA_SHEET_2015_web.pdf)   
+   [Ridgeback Data Sheet](https://github.com/cyin3/ee106a-final-project/blob/master/Ridgeback_DataSheet_2016.pdf)
 (d) any additional videos, images, or data from your finished solution
 (e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
