@@ -1,0 +1,2 @@
+get_centroid
+-DCATKIN_DEVEL_PREFIX=/home/turtlebot/project_follower/devel -DCMAKE_INSTALL_PREFIX=/home/turtlebot/project_follower/install -G Unix Makefiles
