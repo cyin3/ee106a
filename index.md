@@ -129,7 +129,15 @@ Our solution performs well under most circumstances, though a flaw may be the de
 
 
 ### Team
-a) Include names and short bios of each member of your project group.b) Describe the major contributions of each team member.
+a) 
+Girish Balaji
+Rushil Goradia - ME/EECS Major, Senior, Interested in Controls and state estimation.
+Cassie Yin
+
+b) Describe the major contributions of each team member.
+Girish - 
+Rushil - Designed the ROS framework and topics, and implemented the controllers for linear and angular velocities. 
+Cassie - 
 
 ### Additional materials
 (a) code, URDFs, and launch files you wrote  
