@@ -140,9 +140,10 @@ Rushil - Designed the ROS framework and topics, and implemented the controllers 
 Cassie - 
 
 ### Additional materials
-(a) code, URDFs, and launch files you wrote  
-(b) CAD models for any hardware you designed
+(a) code, URDFs, and launch files you wrote  <insert repo link here>
+(b) CAD models for any hardware you designed <no custom hardware> 
 (c) data sheets for components used in your system
+   ![Image](TURTLEBOT_DATA_SHEET_2015_web.pdf)
 (d) any additional videos, images, or data from your finished solution
 (e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
