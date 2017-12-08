@@ -145,11 +145,9 @@ Cassie -
 ### Additional materials
 (a) code, URDFs, and launch files you wrote  <insert repo link here>
 (b) CAD models for any hardware you designed <no custom hardware> 
-(c) data sheets for components used in your system
-   <!--- ![Image](TURTLEBOT_DATA_SHEET_2015_web.pdf) --->
-   <!--- [Turtlebot Data Sheet](https://github.com/cyin3/ee106a-final-project/blob/master/TURTLEBOT_DATA_SHEET_2015_web.pdf)  ---> 
-   <!--- [Ridgeback Data Sheet](https://github.com/cyin3/ee106a-final-project/blob/master/Ridgeback_DataSheet_2016.pdf)  --->
-   [Ridgeback Data Sheet](https://static.generation-robots.com/img/products/Ridgeback_DataSheet_2016.pdf)
+(c) data sheets for components used in your system   
+   
+   [Ridgeback Data Sheet](Ridgeback_DataSheet_2016.pdf)    
    [Turtlebot Data Sheet](TURTLEBOT_DATA_SHEET_2015_web.pdf)
    
 (d) any additional videos, images, or data from your finished solution
