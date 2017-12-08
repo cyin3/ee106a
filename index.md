@@ -54,7 +54,9 @@ We attached a red target onto the ridgeback to create a moving target.  A turtle
 b) What parts did you use to build your solution?  
 
 c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.  
+Launch follower.launch to start running get_paper_centroid.py. Both get_paper_centroid and get_paper_face_centroid share a similar architecture as seen below:
 
+<img src="Images/topics.png" width="600">
 d) How does your complete system work? Describe each step.
 #### Computer Vision
 
@@ -105,10 +107,12 @@ As on our reach goals, we decided to extend recognition with existing controls t
 
 ---
 #### Depth Processing
-![Image](Images/depth.png)
+<img src="Images/depth.png" width="500">  
+<!---![Image](Images/depth.png) --->
 
 #### Feedback Control 
-![Image](Images/feedback.png)  
+<img src="Images/feedback.png" width="600">
+<!--- ![Image](Images/feedback.png)  --->
 With desired x, y, z coordinates, we control the linear x and angular z velocities of the turtlebot. This allows us to set the angular direction and forward velocities so we can move the bot wherever we want.  We set a reference z position for the turtlebot to maintain from the target (0.75m).  The turtlebot tries to maintain the centroid of the image in the center of the image it sees, with some tolerance.  Both angular and linear velocities were controlled with proportional feedback controllers.  The individual proportional gains were tuned for best performance.
 
 
