@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/project_follower/devel
+
+Name: get_centroid
+Description: Description of get_centroid
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/project_follower/devel/lib 
+Requires: 
