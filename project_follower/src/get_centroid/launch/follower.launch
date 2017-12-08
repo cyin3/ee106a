@@ -1,0 +1,13 @@
+<launch>
+
+	<include file="$(find turtlebot_follower)/launch/includes/velocity_smoother.launch.xml">
+      <arg name="nodelet_manager"  value="/mobile_base_nodelet_manager"/>
+      <arg name="navigation_topic" value="/cmd_vel_mux/input/navi"/>
+    </include>
+
+  	<node name="target_finder"
+        pkg="get_centroid"
+        type="get_paper_centroid.py"
+        output="screen"/>
+
+</launch>
