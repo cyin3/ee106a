@@ -167,8 +167,8 @@ Cassie -
    [Ridgeback Data Sheet](Ridgeback_DataSheet_2016.pdf)    
    [Turtlebot Data Sheet](TURTLEBOT_DATA_SHEET_2015_web.pdf)
    
-(d) any additional videos, images, or data from your finished solution
-<iframe width="560" height="420" src=https://youtu.be/Y1cE79Cfd60></iframe>  
+(d) any additional videos, images, or data from your finished solution  
+[![Final Project Video](https://img.youtube.com/vi/Y1cE79Cfd60/0.jpg)](https://www.youtube.com/watch?v=Y1cE79Cfd60)
 
 (e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
