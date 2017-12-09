@@ -166,7 +166,7 @@ Cassie - Construction of website and video, development and testing of controlle
    [Ridgeback Data Sheet](Ridgeback_DataSheet_2016.pdf)    
    [Turtlebot Data Sheet](TURTLEBOT_DATA_SHEET_2015_web.pdf)
    
-- additional videos and images 
+- additional videos and images   
 Final Project Video (click to below to view on youtube):  
 
 [![Final Project Video](https://img.youtube.com/vi/Y1cE79Cfd60/0.jpg)](https://www.youtube.com/watch?v=Y1cE79Cfd60)
