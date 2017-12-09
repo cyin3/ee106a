@@ -46,18 +46,21 @@ A big issue we faced was accounting for the image-processing delay, which caused
 
 
 ### Implementation
-a) Describe any hardware you used or built. Illustrate with pictures and diagrams.
+#### Hardware Used 
 We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
 <img src="Images/IMG_20171206_111641_HDR.jpg" width="200">
 <img src="Images/IMG_20171206_111727_HDR.jpg" width="200">  
 
-b) What parts did you use to build your solution?  
+<!--- b) What parts did you use to build your solution?  --->
 
-c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.  
+<!--- c) Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other appropriate visuals. This includes launch files, URDFs, etc.  --->
+#### Software Architecture
 Launch follower.launch to start running get_paper_centroid.py. Both get_paper_centroid and get_paper_face_centroid share a similar architecture as seen below:
 
-<img src="Images/topics.png" width="600">
-d) How does your complete system work? Describe each step.
+<img src="Images/topics.png" width="600">  
+
+<!--- d) How does your complete system work? Describe each step. --->
+#### How our complete system works: 
 #### Computer Vision
 
 ##### Red Folder Detection
@@ -117,21 +120,23 @@ With desired x, y, z coordinates, we control the linear x and angular z velociti
 
 
 ### Results
-a) How well did your project work? What tasks did it perform? 
-Bellow are the videos of our project in action.  The first two videos demonstrate the turtlebot tracking and following the red target on the moving ridgeback.  The last video shows the turtlebot performing facial recognition and maintaining its angle and distance from the targeted face.  
-b) Illustrate with pictures and at least one video.
+Below are the videos of our project in action.  The first two videos demonstrate the turtlebot tracking and following the red target on the moving ridgeback.  The last video shows the turtlebot performing facial recognition and maintaining its angle and distance from the targeted face.  
+
 <video src="demovideos/red.mp4" width="480" height="300" controls preload></video>
 <video src="demovideos/red2.mp4" width="480" height="300" controls preload></video>
 <video src="demovideos/face_detection.mp4" width="480" height="300" controls preload></video>
 
 ### Conclusion
-(a) Discuss your results. How well did your finished solution meet your design criteria?  
+#### Discussion of Results and Design Criteria 
+<!--- Discuss your results. How well did your finished solution meet your design criteria?  --->
 Our turtlebot is able to track and follow the moving red target, a red folder in this case.  In our finished solution, the turtlebot senses from the RGB camera and depth sensor to acquire the position of the red target and the estimated depth of each pixel for that snapshot of its surroundings.  Once the x, y, z coordinates of the centroid are calculated, the turtlebot actuates with proportional feedback control.  
 
-(b) Did you encounter any particular difficulties?  
+<!--- (b) Did you encounter any particular difficulties?  --->
+#### Difficulties Encountered  
 One of the challenges we faced was providing constant velocity for the for more than 0.6 seconds.  Although the turtlebot requires this to move, the velocity of the turtlebot is constantly being updated as it detects changes in the target's movement and position.  We also experimented with zumys as our moving target, but we had difficulties controlling the zumys.  For the red folder detection, we also had to minimize the instannces of confusion when the turtlebot sees multiple red objects in its view.  Turtlebot's constantly changing position in space can pose a challenge in reliably detecting one red target.  Especially since there exists a delay between the turtlebot's understanding of the target's change in movement and the execution of turtlebot's own movement, the turtlebot may lose sight of the target or have incorrect depth data associated with the centroid point that it identified, as the centroid may now have moved aside to a different point in space.  We overcame this problem by taking a snapshot of the depths associated with the image at the point when the turtlebot begins to find the target centroid by processing its surroundings.  
 
-(c) Does your solution have any flaws or hacks? What improvements would you make if you had additional time?  
+<!--- (c) Does your solution have any flaws or hacks? What improvements would you make if you had additional time?  --->
+#### Flaws and Improvements if More Time  
 Our solution performs well under most circumstances, though a flaw may be the delay between the turtlebot's image capturing and excution of motion, which may cause the turtlebot to overshoot while turning and subsequent oscillation as the turtlebot tries to correct for the overshoot.  If we had more time, we would try to implement a more robust way of predicting the target's movement in the next time frame to account for the delay on the turtlebot's part and minimize the risk of overshooting.  Additionally if time allowed, we were also interested in programming the turtlebot to identify target containing words (convolutional neural net/ OCR) and follow while avoiding obstacles.
 
 
@@ -141,7 +146,7 @@ Girish Balaji
 
 Rushil Goradia - ME/EECS Major, Senior, Interested in Controls and state estimation.
 
-Cassie Yin
+Cassie Yin 
 
 b) Describe the major contributions of each team member.
 
@@ -149,20 +154,22 @@ Girish -
 
 Rushil - Designed the ROS framework and topics, and implemented the controllers for linear and angular velocities. 
 
-Cassie - 
+Cassie -
 
 ### Additional materials
 (a) code, URDFs, and launch files you wrote  <insert repo link here>
    
-   [Project code repo] (project_follower/)
+   [Project code repo](/project_follower)  
    
-(b) CAD models for any hardware you designed <no custom hardware> 
+(b) CAD models for any hardware you designed <no custom hardware>
 (c) data sheets for components used in your system   
    
    [Ridgeback Data Sheet](Ridgeback_DataSheet_2016.pdf)    
    [Turtlebot Data Sheet](TURTLEBOT_DATA_SHEET_2015_web.pdf)
    
 (d) any additional videos, images, or data from your finished solution
+<iframe width="560" height="420" src=https://youtu.be/Y1cE79Cfd60></iframe>  
+
 (e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
 ### Fun
