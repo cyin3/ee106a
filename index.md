@@ -142,7 +142,7 @@ Our solution performs well under most circumstances, though a flaw may be the de
 
 ### Team
 a) 
-Girish Balaji
+Girish Balaji - EECS Major, Interested in computer vision, machine learning, and robotics
 
 Rushil Goradia - ME/EECS Major, Senior, Interested in Controls and state estimation.
 
@@ -150,7 +150,7 @@ Cassie Yin - EECS Major, Junior, Interested in signal processing, circuits, and 
 
 b) Describe the major contributions of each team member.
 
-Girish - 
+Girish - Designed, researched, and implemented vision processing algorithms used for red folder and face detection; developed data pipeline from turtlebot
 
 Rushil - Designed the ROS framework and topics, and implemented the controllers for linear and angular velocities. 
 
