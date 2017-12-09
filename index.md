@@ -47,7 +47,7 @@ A big issue we faced was accounting for the image-processing delay, which caused
 
 ### Implementation
 #### Hardware Used 
-We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.
+We attached a red target onto the ridgeback to create a moving target.  A turtlebot was programmed to follow this target.  
 <img src="Images/IMG_20171206_111641_HDR.jpg" width="200">
 <img src="Images/IMG_20171206_111727_HDR.jpg" width="200">  
 
@@ -146,7 +146,7 @@ Girish Balaji
 
 Rushil Goradia - ME/EECS Major, Senior, Interested in Controls and state estimation.
 
-Cassie Yin 
+Cassie Yin - EECS Major, Junior, Interested in signal processing, circuits, and software development.
 
 b) Describe the major contributions of each team member.
 
@@ -154,25 +154,23 @@ Girish -
 
 Rushil - Designed the ROS framework and topics, and implemented the controllers for linear and angular velocities. 
 
-Cassie -
+Cassie - Construction of website and video, development and testing of controller with integration of image processing.
 
 ### Additional materials
-(a) code, URDFs, and launch files you wrote  <insert repo link here>
+- code, URDFs, and launch files <insert repo link here>
    
    [Project code repo](/project_follower)  
    
-(b) CAD models for any hardware you designed <no custom hardware>
-(c) data sheets for components used in your system   
+- data sheets for components used  
    
    [Ridgeback Data Sheet](Ridgeback_DataSheet_2016.pdf)    
    [Turtlebot Data Sheet](TURTLEBOT_DATA_SHEET_2015_web.pdf)
    
-(d) any additional videos, images, or data from your finished solution  
-Final Project Video (click to view on youtube):  
+- additional videos and images 
+Final Project Video (click to below to view on youtube):  
 
 [![Final Project Video](https://img.youtube.com/vi/Y1cE79Cfd60/0.jpg)](https://www.youtube.com/watch?v=Y1cE79Cfd60)
 
-(e) links to other public sites (e.g., GitHub), if that is where your files are stored
 
 ### Fun
 
